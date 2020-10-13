@@ -1,0 +1,232 @@
+/* 
+
+This is my first attempt doing a web page with grid. I first used empty div's to create colored background 
+with other div's layered on top of them. This didn't feel right as the empty div's didn't really serve any
+purpose more than adding a color. I then come across a method to create the empty cells with the functions 
+::before and ::after. I'm not sure wich is the best solution but I like this one for now. 
+
+I also started out with standard divs but changed that to the new HTML5 elements header, nav, main and footer 
+as I like the feel of structure this gives to the CSS code and the HTML document. 
+
+I had to resort to Z-index to layer things correctly as ::after otherwise would render my footer background 
+on top of my footer text content. This seems to work, the code validates and looks the same on the browsers 
+I have access to. My next step is to figure out wether there is a better approach to grid combined with full 
+width hero images and full width background color. 
+
+Lastly I've tried to add some responsiveness by scaling the header and changing the layout of the menu with 
+two media queries. The nav menu is layed out with an unordered list and flex box. 
+
+*/
+
+
+/*  *** GRID ***  */
+
+    .container { /* My CSS grid layout is defined here */
+        display: grid; /* Makes this the parent element for the grid layout */
+        grid-template-columns: 1fr minmax(auto, 768px) 1fr; /* 3 columns with width 1 fraction, max 768px, 1 fraction */
+         grid-auto-rows: auto; /* let computer magic create number of rows needed with height auto */
+    }
+
+    .container::before { /* Auto generated content that gives me a full width row with background color for nav menu, 
+        stolen from https://www.smashingmagazine.com/2018/02/generated-content-grid-layout/ */
+        content: ""; /* No content needed */
+        background-color: #dddddd; /* Background for nav menu row */
+        grid-column: 1 / -1; /* Span all columns from first to last */
+        grid-row: 2; /* Target row */
+    }
+
+    .container::after { /* Auto generated content that gives me a full width row with background color for footer, 
+        stolen from https://www.smashingmagazine.com/2018/02/generated-content-grid-layout/ */
+        content: ""; /* No content needed */
+        background-color: #666666; /* Background for footer row */
+        grid-column: 1 / -1; /* Span all columns from first to last */
+        grid-row: 4; /* Target row */
+        z-index: -1; /* Make sure this is rendered below everything else in footer */
+    }
+
+    header { /* Element for my header image top of screen, full width and scales with viewport */
+        background-image: url("images/nyc.jpg"); /* My background image */
+        width: auto; /* Make cell go full width */
+        height: calc(100vw*0.25); /* Scales grid cell height with help of viewport width, some cropping at bottom is intentional */
+        background-repeat: no-repeat; /* Show image only once */
+        background-position: center top; /* Render image from top and center of screen*/
+        background-size: 100%; /* Make the image scale full width */
+        grid-row: 1; /* Places the image in first grid row */
+        grid-column: 1/-1; /* Span columns from first to last */
+        display: grid; /* Makes this a parent element grid with one big cell used to style it's child element */
+    }
+
+    .header_title { /* Class adjusting alignment of the headline overlayed my header image */
+        justify-self: center; /* As this is a child of an element with display:grid, this will center itself horizontally */
+        align-self: center; /* The same as previous row but vertically */
+    }
+    
+    nav { /* Element containing my nav menu, placing it in the middle column of the second row */
+        grid-row: 2; /* Second row of my grid */
+        grid-column: 2; /* Second and center column of my grid */
+    }
+
+    ul.nav_menu { /* An unordered list with flex box styling for it's items. */
+        display: flex; /* Makes this a flex box container used to style it's content */
+        flex-direction: row; /* Set flex direction to row */
+        justify-content: space-between; /* Justify the content evenly spaced horizontally */
+        align-items: center; /* Align the content vertically */
+        width: 100%; /* Fill full width of parent */
+    }
+    
+    main { /* Element containing the main part of my page, placing it in the middle column of the third row */
+        grid-column: 2; /* Second and center column of grid */
+        grid-row: 3; /* Third row of grid */
+    }
+    
+    footer { /* Element containing the my footer part of page, placing it in the middle column of the last row */
+        grid-row: 4; /* Fourth row of grid */
+        grid-column: 2; /* Second and center column of grid */
+    }
+
+/* *** NAV MENU *** */
+
+.nav_menu { /* Class for styling my nav menu, child item to ul.nav_menu */
+    list-style-type: none; /* Remove bullets from unordered list item  */
+    margin: 0px;  /* Remove any margin */
+    padding: 0px;  /* Remove any padding */
+}
+
+.nav_menu>li a { /* Styling nav menu links  */
+    text-decoration: none; /* Remove underlining from text */
+    color: #333333; /* Set a dark grey color of the links */
+    font-weight: bold; /* Set font weight to bold */
+    font-size: 1.1rem; /* Set font size */
+    text-transform: uppercase; /* Convert any character to uppercase because it looks better */
+    letter-spacing: 0.05em;  /* A slight adjustment of space between characters */
+}
+
+.nav_menu>li a:hover { /* Styling nav menu link when hoovering over link */
+    color: #660000; /* Set color to dark red */
+}
+
+/* *** THE REST *** */
+
+* { /* Wildcard to do a little reset, set all text on page to the same formatting and zero margins and padding . */
+    font-family: 'Source Sans Pro', sans-serif; /* Set font family, with google font as first choice */
+    font-weight: 400;  /* Set font weight */
+    font-size: 1.1rem; /* Set font size */
+    color:#333333; /* Set dark grey font color */ 
+    padding: 0; /* Set all padding to zero */
+    margin: 0; /* Set all padding to margin */
+}
+
+a { /* Style a href links on page */
+    text-decoration: none; /* Remove all text underlining */
+    color: #660000; /* Set text color to dark red for all links (not styled by anything else) */
+}
+
+body { /* Style everything within body element */
+    background-color: #ececec; /* Set background color to off white, used as background where nothing else is set */
+}
+
+.container>div, nav, main, footer { /* Style div, nav, main and footer elements */
+    padding: 10px; /* Set the same 10px padding to all these element */
+}
+
+.center { /* Class to center text */
+    text-align: center; /* Align text centered */
+}
+
+.clear { /* Class to clear floats */
+    clear: both;  /* Clear float left and float right */
+}
+
+.footer { /* Class to style footer content */
+    text-align: center;  /* Align text centered */
+    margin: 0px; /* Remove any extra margins */
+    padding: 0px; /* Remove any extra paddings */
+    color: #cccccc; /* Set font text to a bright grey */
+    font-size: 0.85em;  /* Set font size to a smaller size */
+}
+
+h1, h2, h3 { /* Style Heading 1 to 3 to the same size, weight, color, and margings */
+    font-weight: 600; /* Set font weight to bold */
+    color: #660000; /* Set font color to dark red */
+    font-size: 2.3rem; /* Set font to a pretty big size */
+    margin:1rem 0 0.5rem 0;  /* Set margins, top, right, bottom and left */
+}
+
+h2 { /* Style Heading 2 */
+    font-size: 1.9rem; /* Scale font size down from previous size */
+}
+
+h3 { /* Style Heading 3 */
+    font-size: 1.5rem; /* Scale font size down from previous size */
+}
+
+h1.header_title { /* Special style for h1 overlay header image */
+    font-size: 4.5rem; /* Scale size way up */
+    font-weight: 700; /* Set font weight to really bold */
+    color: #eeeeee; /* Set color to a bright grey, almost white */
+    letter-spacing: 0.05em; /* Adjust space between characters, add a little bit */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Set a shadow, offset 2 px, blur 5px, black with alpha transperance 0.5 */
+    /* padding: 0 0.2em; */
+    /* background-color: rgba(51, 51, 51, 0.2); */
+}
+
+h3.byline { /* Special style for h3 used in byline */
+    font-style: italic; /* Set style to italic */
+    position: relative; /* Set position to allow exact positioning */
+    left: 20px; /* Move 20px left from whatever is to the left of h3, in this case an image. */
+    margin: 0px; /* Remove any margins */
+}
+
+input[type="submit"] { /* css attribute selector to target the submit button, this would affect any form submit button on this page */
+    background-color: #666666; /* Set background to a shade of grey */
+    color: #ffffff; /* Set text color to pure white */
+    border: 0px; /* Remove any border */
+    border-radius: 8px; /* Round the corners */
+    font-size: 1.1em; /* Set font size, scale up a bit */
+    font-weight: bold; /* Set font weight */
+    padding: 10px; /* Add padding to all sides, inside the grey area */
+    margin: 10px 0px; /* Add margin to top and bottom, zero on sides, outside the grey area */
+}
+
+p { /* Style all p elements (not styled anywhere else */
+    margin: 0.8rem 0; /* Add a bit of distans between paragraphs top and bottom, zero on sides */
+}
+
+p.byline { /* Special stylee for paragraph in byline */
+    color: #000000; /* Set text font to pure black */
+    font-size: 1.2rem; /* Set font size, increase slightly */
+    font-weight: 400;  /* Set weight to thin */
+    font-style: italic; /* Set style to italic */
+    position: relative; /* Set position to relative to allow positioning */
+    left: 20px; /* Move 20px left from whatever it's next to, in this case an image */
+}
+
+.portrait { /* Special style for portrait image */
+    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.2); /* Set a shadow, offset 3px, blur 5px, spread 3px, black with alpha transperance 0.2 */
+    border: 1px solid white; /* Add a white border to contrast the shadow, outside image inside border */
+    float: left; /* Float left puts image to the left and let text appear to the right of image */
+    margin: 0 0 20px 0; /* Set margin bottom to 20px, everything else to zero */
+    height: 100px; /* Scale size of image, no width give to scale proportionatly */
+}
+
+@media only screen and (max-width: 768px) { /* If screen is smaller than 768 pix */
+    h1.header_title { /* Style the h1 title overlayed header image */
+        font-size: 3.7rem; /* Scale down font size to avoid it overflowing it's parent element */
+    }   
+    h1.header_title { /* Change scale and improve contrast on h1 title on smaller screen */
+        font-size: calc(3vw*3.5); /* Scale size with viewport width */
+        color: #ffffff; /* Change font color from off white to pure white */
+        /* text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);  /* Change drop shadow to less transparency */
+    }    
+}
+
+@media only screen and (max-width: 600px) { /* If screen is smaller than 600 */
+    ul.nav_menu { /* Let's change the orientation of the nav menu */
+        display: flex; /* Still flex box */
+        flex-direction: column; /* change direction to column */
+        flex-wrap: wrap; /* allow wrap, not sure this has any effect here */
+        justify-content: space-between; /* Justify items evenly spaced out */
+        align-items: center; /* Center items vertically */ 
+        width: 100%; /* Set flex box container to full width of the parent element */
+    }    
+}

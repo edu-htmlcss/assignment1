@@ -1,0 +1,69 @@
+<!DOCTYPE html> <!-- tell the document reader, in this case a browser, that this is a HTML document-->
+<html lang="en"> <!-- Start of HTML document, and our language is english -->
+
+<!-- All CSS commenting is made in the CSS document -->
+
+<head> <!-- HTML header declaration start here-->
+    <meta charset="UTF-8"> <!-- Our character encoding is in UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Let us dfefine our viewport and viewport scale -->
+    <title>Presentation, Inlämningsuppgift 1 - Christian Berling</title> <!-- Document title, in a browser this is shown in tab / window top -->
+    <link rel="stylesheet" href="assignment1.css"> <!-- External resource link that tells the browerser where to find the stylesheet for this doc  -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700;1,900&display=swap"
+        rel="stylesheet"> <!-- External resource link to a Google font -->
+</head> <!-- End of header section -->
+
+<body> <!-- Body section of HTML doc -->
+    <div class="container"> <!-- Wrapper div for my grid layout -->
+        <header><!-- This element holds the background header image, HTML5 element -->
+            <h1 class="header_title">Min presentation</h1> <!-- Heading 1, placed on top of header background image -->
+        </header>  <!-- End of the Header element -->
+        <nav> <!-- This element contains my nav menu, part of grid, styles content with flex box, HTML5 element -->
+            <ul class="nav_menu">  <!-- Nav menu as Unordered List styled with flexbox-->
+                <li><a href="#">Start</a> <!-- List item with a href link to top of current page -->
+                <li><a href="index.html">Presentation</a> <!-- List item with a href link to this page, almost the same as previous -->
+                <li>Space for something more in the future <!-- List item with some plain text -->
+            </ul><!-- End of Unordered List-->
+        </nav><!-- End of nav menu div -->
+        <main> <!-- Main section of the page, HTML5 element -->
+            <section class="byline"> <!-- A special section for a "byline" part of the page, HTML5 element -->
+            <h2>En rubrik</h2> <!-- Heading 2, no more no less -->
+            <img src="images/cb_sailing_2020.jpg" alt="Christian Berling" class="portrait"> <!-- a picture with size attributes, styling and position in CSS -->
+            <h3 class="byline">En underrubrik</h3><!-- A heading 3 with a class for position and format styling -->
+            <p class="byline">En kort och väldigt opersonlig presentationstext om mig själv. </p><!-- A paragraph with a class for position and format styling -->
+            </section> <!-- End of section -->
+
+            <!-- The following paragraphs are mostly plain text paragraphs without any extra class or id. 
+                 I have not commented each p element as they are the same. 
+
+                 The first p tag is styled with class "clear" to break any float styling to make sure all 
+                 text ends up below instead of next to the image. 
+                 
+                 The second paragraph  contains a href link with a target set to "_blank" to open the link 
+                 in a new tab or window. -->
+
+            <p class="clear">Jag gjorde min första hemsida i slutet av 90-talet. Då gjordes layout med tabeller
+                och färgade bakgrundsbilder. Det häftigaste man kunde göra var en animerad GIF. Sen kom CSS och 
+                med DIV och float gick det att göra sidor med betydligt mer avancerad layout.</p>
+            <p><a href="https://en.wikipedia.org/wiki/Holy_grail_(web_design)" target="_blank">The holy grail</a>
+                var nu inom räckhåll. Men mycket tid fick läggas på att hitta sätt att hantera webbläsarnas olika
+                implementering av CSS och en stor del av webbdesign handlade om att göra avancerad grafik i
+                program som Photoshop.</p>
+            <p>Smart phones gjorde att Responsive Web Design blev ett måste. CSS utvecklades 
+                och kompletterande teknik som preprocessors och frameworks började dyka upp. </p>
+            <p>Introduktionen av CSS grid har äntligen gjort det möjligt att få till en flytande rutnätsbaserad
+                layout på skärmen. Som med alla nya funktioner har det tagit några år innan det slagit igenom men
+                stöds nu av de flesta webbläsare. </p>
+            <p>Detta är första gången jag gör en hemsida med CSS grid, flexbox och de nya HTML-elementen som 
+                introducerades med HTML5, header, nav, main, section och footer.</p>
+            <form action="https://www.lipsum.com/" target="_blank"> <!-- A form with an action that loads the address and a target for a new tab or window -->
+                <p class="center"><input type="submit" value="Lorem Ipsum!" /></p> <!-- A button with a submit that triggers the form action. Wrapped in a p tag with class center to center the button in the paragraph-->
+            </form> <!-- End of form -->
+        </main> <!-- End of main element -->
+        <footer> <!-- Element contains footer and is placed center cell last row on top of background -->
+                <p class="footer">Inlämningsuppgift 1 2020-10-16</p><!-- A paragraph element for footer text with a class for styling -->
+        </footer> <!-- End of footer element -->
+    </div> <!-- End of container grid div -->
+</body> <!-- End of the body element -->
+
+</html> <!-- End of HTML document -->
