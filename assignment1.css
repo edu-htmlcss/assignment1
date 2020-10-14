@@ -105,6 +105,32 @@ two media queries. The nav menu is layed out with an unordered list and flex box
     color: #660000; /* Set color to dark red */
 }
 
+/* *** FLEX BOX PORTFOLIO *** */
+.portfolio { /* Container div for portfolio section, styled with flexbox */
+    display: flex; /* Layout with flex box */
+    flex-direction: row; /* Set flex direction to row */
+    flex-wrap: wrap; /* Allow content to wrap if width is not enough for one row*/
+    justify-content: space-evenly; /* Justify the content evenly spaced horizontally with space in between and on sides */
+    align-items: center; /* Align the content vertically */
+}
+
+.portfolio_item { /* Child div styling portfolio items */
+    background-color: #669966; /* Set background to green */
+    width: 200px; /* Set width to 200px; */
+    height: 200px; /* Set height to 200px */
+    margin: 10px; /* Make sure we have at least a 10px margin around every box */
+    border-radius: 20px; /* Round the corners */
+    display: flex; /* Layout content within this item with flex box*/ 
+    justify-content: center; /* Justify the content evenly spaced horizontally */
+    align-items: center; /* Align the content vertically */
+}
+
+.portfolio_content { /* Style to format the text content of a portfolio item*/
+    font-size: 1.5rem; /* Set font size, scale up a bit */
+    font-weight: 600; /* Set font weight to bold */
+    color: #ccffcc; /* Set font color to pale green */
+}
+
 /* *** THE REST *** */
 
 * { /* Wildcard to do a little reset, set all text on page to the same formatting and zero margins and padding . */
@@ -123,6 +149,16 @@ a { /* Style a href links on page */
 
 body { /* Style everything within body element */
     background-color: #ececec; /* Set background color to off white, used as background where nothing else is set */
+}
+
+.byline { /* Section containing my "by line", photo and info about the author */
+    overflow: hidden; /* Keeps the photo inside the section despite using "float:left" in the photo styling */
+}
+
+.byline__position { /* Special style for h3 used in byline */
+    position: relative; /* Set position to allow exact positioning */
+    left: 20px; /* Move 20px left from whatever is to the left of h3, in this case an image. */
+    margin: 0.5rem 0; /* Remove any margins */
 }
 
 .container>div, nav, main, footer { /* Style div, nav, main and footer elements */
@@ -145,7 +181,7 @@ body { /* Style everything within body element */
     font-size: 0.85em;  /* Set font size to a smaller size */
 }
 
-h1, h2, h3 { /* Style Heading 1 to 3 to the same size, weight, color, and margings */
+h1, h2, h3, h4 { /* Style Heading 1 to 3 to the same size, weight, color, and margings */
     font-weight: 600; /* Set font weight to bold */
     color: #660000; /* Set font color to dark red */
     font-size: 2.3rem; /* Set font to a pretty big size */
@@ -160,53 +196,33 @@ h3 { /* Style Heading 3 */
     font-size: 1.5rem; /* Scale font size down from previous size */
 }
 
+h4 { /* Style Heading 3 */
+    font-size: 1.1rem; /* Scale font size down from previous size */
+}
+
 h1.header_title { /* Special style for h1 overlay header image */
     font-size: 4.5rem; /* Scale size way up */
     font-weight: 700; /* Set font weight to really bold */
     color: #eeeeee; /* Set color to a bright grey, almost white */
     letter-spacing: 0.05em; /* Adjust space between characters, add a little bit */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Set a shadow, offset 2 px, blur 5px, black with alpha transperance 0.5 */
-    /* padding: 0 0.2em; */
-    /* background-color: rgba(51, 51, 51, 0.2); */
 }
 
-h3.byline { /* Special style for h3 used in byline */
-    font-style: italic; /* Set style to italic */
-    position: relative; /* Set position to allow exact positioning */
-    left: 20px; /* Move 20px left from whatever is to the left of h3, in this case an image. */
-    margin: 0px; /* Remove any margins */
-}
-
-input[type="submit"] { /* css attribute selector to target the submit button, this would affect any form submit button on this page */
-    background-color: #666666; /* Set background to a shade of grey */
-    color: #ffffff; /* Set text color to pure white */
-    border: 0px; /* Remove any border */
-    border-radius: 8px; /* Round the corners */
-    font-size: 1.1em; /* Set font size, scale up a bit */
-    font-weight: bold; /* Set font weight */
-    padding: 10px; /* Add padding to all sides, inside the grey area */
-    margin: 10px 0px; /* Add margin to top and bottom, zero on sides, outside the grey area */
+.italic { /* general style to affect any text to italics */
+    font-style: italic; /* Set font style to italics */
 }
 
 p { /* Style all p elements (not styled anywhere else */
-    margin: 0.8rem 0; /* Add a bit of distans between paragraphs top and bottom, zero on sides */
-}
-
-p.byline { /* Special stylee for paragraph in byline */
-    color: #000000; /* Set text font to pure black */
-    font-size: 1.2rem; /* Set font size, increase slightly */
-    font-weight: 400;  /* Set weight to thin */
-    font-style: italic; /* Set style to italic */
-    position: relative; /* Set position to relative to allow positioning */
-    left: 20px; /* Move 20px left from whatever it's next to, in this case an image */
+    margin: 0 0 10px 0; /* Add a bit of distans between paragraphs by setting mergin bottom to 10px, everything else to zero */
 }
 
 .portrait { /* Special style for portrait image */
+    position: relative;
     box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.2); /* Set a shadow, offset 3px, blur 5px, spread 3px, black with alpha transperance 0.2 */
     border: 1px solid white; /* Add a white border to contrast the shadow, outside image inside border */
     float: left; /* Float left puts image to the left and let text appear to the right of image */
-    margin: 0 0 20px 0; /* Set margin bottom to 20px, everything else to zero */
     height: 100px; /* Scale size of image, no width give to scale proportionatly */
+    margin: 0 0 10px 0; /* Set bottom-margin to 10px to allow for the drop shadow within the parent container */
 }
 
 @media only screen and (max-width: 768px) { /* If screen is smaller than 768 pix */

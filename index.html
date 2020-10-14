@@ -27,10 +27,12 @@
         </nav><!-- End of nav menu div -->
         <main> <!-- Main section of the page, HTML5 element -->
             <section class="byline"> <!-- A special section for a "byline" part of the page, HTML5 element -->
-            <h2>En rubrik</h2> <!-- Heading 2, no more no less -->
+            <h2>Inlämningsuppgift 1 &#0150; presentationssida </h2> <!-- Heading 2, no more no less -->
             <img src="images/cb_sailing_2020.jpg" alt="Christian Berling" class="portrait"> <!-- a picture with size attributes, styling and position in CSS -->
-            <h3 class="byline">En underrubrik</h3><!-- A heading 3 with a class for position and format styling -->
-            <p class="byline">En kort och väldigt opersonlig presentationstext om mig själv. </p><!-- A paragraph with a class for position and format styling -->
+            <h4 class="byline__position italic">Christian Berling, artikelförfattare</h4><!-- A heading 3 with a class for position and format styling -->
+            <p class="byline__position italic">Här skulle man kunna ha en kort presentationstext om personen 
+                som skrivit texten som syns här nedanför. I stället står här bara några meningslösa rader för 
+                att fylla utrymmet. </p><!-- A paragraph with a class for position and format styling -->
             </section> <!-- End of section -->
 
             <!-- The following paragraphs are mostly plain text paragraphs without any extra class or id. 
@@ -56,9 +58,25 @@
                 stöds nu av de flesta webbläsare. </p>
             <p>Detta är första gången jag gör en hemsida med CSS grid, flexbox och de nya HTML-elementen som 
                 introducerades med HTML5, header, nav, main, section och footer.</p>
-            <form action="https://www.lipsum.com/" target="_blank"> <!-- A form with an action that loads the address and a target for a new tab or window -->
-                <p class="center"><input type="submit" value="Lorem Ipsum!" /></p> <!-- A button with a submit that triggers the form action. Wrapped in a p tag with class center to center the button in the paragraph-->
-            </form> <!-- End of form -->
+            
+            <!-- Below is a mock up section to try out a little more flex box  -->
+            <div class="portfolio"> <!-- A div element styled with class "portfolio" --> 
+                <div class="portfolio_item"> <!-- A div element to create a portfolio item, a green square  -->  
+                    <div class="portfolio_content">1</div> <!-- A div enclosing the text within the portfolio item so it can be centered -->
+                </div>
+                <div class="portfolio_item"> <!-- A div element to create a portfolio item, a green square  -->  
+                    <div class="portfolio_content">2</div> <!-- A div enclosing the text within the portfolio item so it can be centered -->
+                </div>
+                <div class="portfolio_item"> <!-- A div element to create a portfolio item, a green square  -->  
+                    <div class="portfolio_content">3</div> <!-- A div enclosing the text within the portfolio item so it can be centered -->
+                </div>
+                <div class="portfolio_item"> <!-- A div element to create a portfolio item, a green square  -->  
+                    <div class="portfolio_content">4</div> <!-- A div enclosing the text within the portfolio item so it can be centered -->
+                </div>
+                <div class="portfolio_item"> <!-- A div element to create a portfolio item, a green square  -->  
+                    <div class="portfolio_content">5</div> <!-- A div enclosing the text within the portfolio item so it can be centered -->
+                </div>
+            </section>
         </main> <!-- End of main element -->
         <footer> <!-- Element contains footer and is placed center cell last row on top of background -->
                 <p class="footer">Inlämningsuppgift 1 2020-10-16</p><!-- A paragraph element for footer text with a class for styling -->
