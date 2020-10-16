@@ -1,47 +1,74 @@
-<!DOCTYPE html> <!-- tell the document reader, in this case a browser, that this is a HTML document-->
-<html lang="en"> <!-- Start of HTML document, and our language is english -->
+<!-- tell document reader this is a HTML document-->
+<!DOCTYPE html> 
+<!-- Start of HTML document, set our language to swedish -->
+<html lang="sv"> 
 
 <!-- All CSS commenting is made in the CSS document -->
 
-<head> <!-- HTML header declaration start here-->
-    <meta charset="UTF-8"> <!-- Our character encoding is in UTF-8 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Let us dfefine our viewport and viewport scale -->
-    <title>Presentation, Inlämningsuppgift 1 - Christian Berling</title> <!-- Document title, in a browser this is shown in tab / window top -->
-    <link rel="stylesheet" href="assignment1.css"> <!-- External resource link that tells the browerser where to find the stylesheet for this doc  -->
+<!-- HTML header declaration start here-->
+<head> 
+    <!-- Set character encoding to UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- Define viewport and viewport scale -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <!-- Document title, shown in tab / window title bar -->
+    <title>Presentation, Inlämningsuppgift 1 - Christian Berling</title> 
+    <!-- External resource link to stylesheet for this doc -->
+    <link rel="stylesheet" href="assignment1.css"> 
+    <!-- External resource link to a Google font -->
     <link
         href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700;1,900&display=swap"
-        rel="stylesheet"> <!-- External resource link to a Google font -->
-</head> <!-- End of header section -->
+        rel="stylesheet"> 
+<!-- End of header section -->
+</head> 
 
-<body> <!-- Body section of HTML doc -->
-    <div class="container"> <!-- Wrapper div for my grid layout -->
-        <header><!-- This element holds the background header image, HTML5 element -->
-            <h1 class="header_title">Min presentation</h1> <!-- Heading 1, placed on top of header background image -->
-        </header>  <!-- End of the Header element -->
-        <nav> <!-- This element contains my nav menu, part of grid, styles content with flex box, HTML5 element -->
-            <ul class="nav_menu">  <!-- Nav menu as Unordered List styled with flexbox-->
-                <li><a href="#">Start</a> <!-- List item with a href link to top of current page -->
-                <li><a href="index.html">Presentation</a> <!-- List item with a href link to this page, almost the same as previous -->
-                <li>Space for something more in the future <!-- List item with some plain text -->
-            </ul><!-- End of Unordered List-->
-        </nav><!-- End of nav menu div -->
-        <main> <!-- Main section of the page, HTML5 element -->
-            <section class="byline"> <!-- A special section for a "byline" part of the page, HTML5 element -->
-            <h2>Inlämningsuppgift 1 &#0150; presentationssida </h2> <!-- Heading 2, no more no less -->
-            <img src="images/cb_sailing_2020.jpg" alt="Christian Berling" class="portrait"> <!-- a picture with size attributes, styling and position in CSS -->
-            <h4 class="byline__position italic">Christian Berling, artikelförfattare</h4><!-- A heading 3 with a class for position and format styling -->
-            <p class="byline__position italic">Här skulle man kunna ha en kort presentationstext om personen 
+<!-- Body section of HTML doc -->
+<body> 
+    <!-- Wrapper div for my grid layout -->
+    <div class="container"> 
+        <!-- HTML5 element, start of header block with background image -->
+        <header>
+            <!-- Heading 1, placed on top of header background image -->
+            <h1 class="header_title">Min presentation</h1> 
+        <!-- End of the Header element -->
+        </header>  
+        <!-- HTML5 element, start of nav menu, part of grid -->
+        <nav> 
+            <!-- Unordered List containing menu, layout with flexbox-->
+            <ul class="nav_menu">  
+                <!-- List item with menu href link to top of current page -->
+                <li><a href="#">Start</a> 
+                <!-- List item with menu href link to current page -->
+                <li><a href="index.html">Presentation</a> 
+                <!-- List item with some plain text -->
+                <li>Space for something more in the future 
+            <!-- End of Unordered List-->
+            </ul>
+        <!-- End of nav element -->
+        </nav>
+        <!-- HTML5 element, start of main section of page -->
+        <main> 
+            <!-- Heading 2, no extra styling needed  -->
+            <h2>Inlämningsuppgift 1 &mdash; presentationssida </h2> 
+                <!-- HTML5 element, wraps byline section of page -->
+                <section class="byline"> 
+                <!-- A picture, styled with float to allow text next to it -->
+                <img src="images/cb_sailing_2020.jpg" alt="Christian Berling" class="portrait">
+                <!-- A heading 4 with styling placing it next to image --> 
+                <h4 class="byline__position italic zeromargin">Christian Berling, artikelförfattare</h4>
+                <!-- A paragraph with styling placing it next to image --> 
+                <p class="byline__position italic">Här skulle man kunna ha en kort presentationstext om personen 
                 som skrivit texten som syns här nedanför. I stället står här bara några meningslösa rader för 
-                att fylla utrymmet. </p><!-- A paragraph with a class for position and format styling -->
-            </section> <!-- End of section -->
+                att fylla utrymmet. </p>
+            </section> <!-- End of byline section -->
 
             <!-- The following paragraphs are mostly plain text paragraphs without any extra class or id. 
-                 I have not commented each p element as they are the same. 
+                 I have not commented each p element. 
 
                  The first p tag is styled with class "clear" to break any float styling to make sure all 
-                 text ends up below instead of next to the image. 
+                 text ends up below, instead of next to, the image. 
                  
-                 The second paragraph  contains a href link with a target set to "_blank" to open the link 
+                 The second paragraph contains a href link with a target set to "_blank" to open the link 
                  in a new tab or window. -->
 
             <p class="clear">Jag gjorde min första hemsida i slutet av 90-talet. Då gjordes layout med tabeller
@@ -59,29 +86,48 @@
             <p>Detta är första gången jag gör en hemsida med CSS grid, flexbox och de nya HTML-elementen som 
                 introducerades med HTML5, header, nav, main, section och footer.</p>
             
-            <!-- Below is a mock up section to try out a little more flex box  -->
-            <div class="portfolio"> <!-- A div element styled with class "portfolio" --> 
-                <div class="portfolio_item"> <!-- A div element to create a portfolio item, a green square  -->  
-                    <div class="portfolio_content">1</div> <!-- A div enclosing the text within the portfolio item so it can be centered -->
+            <!-- Below is a mock up section to try out more flex box  -->
+            <!-- Wrapper div element for portfolio --> 
+            <div class="portfolio"> 
+                <!-- A div element for a portfolio item, a green square  -->  
+                <div class="portfolio_item"> 
+                    <!-- A div to center content in item -->
+                    <div class="portfolio_content">1</div> 
+                <!-- End of portfolio item-->
                 </div>
-                <div class="portfolio_item"> <!-- A div element to create a portfolio item, a green square  -->  
-                    <div class="portfolio_content">2</div> <!-- A div enclosing the text within the portfolio item so it can be centered -->
+                <div class="portfolio_item"> 
+                    <!-- A div to center content in item -->
+                    <div class="portfolio_content">2</div> 
+                <!-- End of portfolio item-->
                 </div>
-                <div class="portfolio_item"> <!-- A div element to create a portfolio item, a green square  -->  
-                    <div class="portfolio_content">3</div> <!-- A div enclosing the text within the portfolio item so it can be centered -->
+                <div class="portfolio_item"> 
+                    <!-- A div to center content in item -->
+                    <div class="portfolio_content">3</div> 
+                <!-- End of portfolio item-->
                 </div>
-                <div class="portfolio_item"> <!-- A div element to create a portfolio item, a green square  -->  
-                    <div class="portfolio_content">4</div> <!-- A div enclosing the text within the portfolio item so it can be centered -->
+                <div class="portfolio_item"> 
+                    <!-- A div to center content in item -->
+                    <div class="portfolio_content">4</div> 
+                <!-- End of portfolio item-->
                 </div>
-                <div class="portfolio_item"> <!-- A div element to create a portfolio item, a green square  -->  
-                    <div class="portfolio_content">5</div> <!-- A div enclosing the text within the portfolio item so it can be centered -->
+                <div class="portfolio_item"> 
+                    <!-- A div to center content in item -->
+                    <div class="portfolio_content">5</div> 
+                <!-- End of portfolio item-->
                 </div>
-            </section>
-        </main> <!-- End of main element -->
-        <footer> <!-- Element contains footer and is placed center cell last row on top of background -->
-                <p class="footer">Inlämningsuppgift 1 2020-10-16</p><!-- A paragraph element for footer text with a class for styling -->
-        </footer> <!-- End of footer element -->
-    </div> <!-- End of container grid div -->
-</body> <!-- End of the body element -->
-
-</html> <!-- End of HTML document -->
+            <!-- End of portfolio wrap -->
+            </div>
+        <!-- End of main element -->
+        </main> 
+        <!-- HTML5 element, start of footer part of page -->
+        <footer> 
+            <!-- Paragraph for footer content, centered -->
+            <p class="footer__text center zeromargin">Inlämningsuppgift 1 2020-10-16</p>
+        <!-- End of footer element -->
+        </footer> 
+    <!-- End of container grid div -->
+    </div> 
+<!-- End of body element -->
+</body> 
+<!-- End of HTML document -->
+</html> 
